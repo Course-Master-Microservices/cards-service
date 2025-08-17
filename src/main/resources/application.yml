@@ -16,3 +16,22 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  config:
+    import:
+      - "application_prod.yml"
+      - "application_qa.yml"
+  profiles:
+    active:
+      - "prod"
+
+build:
+  version: "3.0"
+
+cards:
+  message: "Welcome to Bank cards related local APIs "
+  contactDetails:
+    name: "Dragos Lech - Developer"
+    email: "dragos@alho.dev"
+  onCallSupport:
+    - (412) 419-3491
+    - (915) 382-1932
