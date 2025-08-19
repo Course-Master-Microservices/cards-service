@@ -1,5 +1,6 @@
 package dev.alho.cards;
 
+import dev.alho.cards.dto.CardsContactInfoDto;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
@@ -7,10 +8,11 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.info.License;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-@EnableJpaAuditing(auditorAwareRef = "auditAware")
+
 @OpenAPIDefinition(
 		info = @Info(
 				title = "Cards microservice REST API Documentation",
@@ -31,6 +33,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 				url = "https://www.alho.dev/swagger-ui.html"
 		)
 )
+@EnableConfigurationProperties({CardsContactInfoDto.class})
+@EnableJpaAuditing(auditorAwareRef = "auditAware")
 public class CardsApplication {
 
 	public static void main(String[] args) {
